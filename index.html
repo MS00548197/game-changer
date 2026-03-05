@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Changer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="badge">Herbalife Coach Tracker</p>
+        <h1>Game Changer</h1>
+        <p class="subtitle">Track daily habits for healthy weight loss or weight gain.</p>
+      </header>
+
+      <nav class="tabs" aria-label="Main tabs">
+        <button class="tab-btn active" data-tab="trackerTab">Tracker</button>
+        <button class="tab-btn" data-tab="historyTab">History & Reports</button>
+      </nav>
+
+      <section id="trackerTab" class="tab-panel active">
+        <section class="card">
+          <h3>Client Profile</h3>
+          <div class="input-grid">
+            <div>
+              <label for="clientName">Name</label>
+              <input id="clientName" type="text" placeholder="Client full name" />
+            </div>
+            <div>
+              <label for="mobileNumber">Mobile Number</label>
+              <input id="mobileNumber" type="tel" placeholder="e.g. +91 98xxxxxx" />
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Body Metrics</h3>
+
+          <div class="input-grid">
+            <div>
+              <label for="height">Height (cm)</label>
+              <input id="height" type="number" min="100" max="250" step="1" placeholder="e.g. 170" />
+            </div>
+            <div>
+              <label for="weight">Weight (kg)</label>
+              <input id="weight" type="number" min="30" max="300" step="0.1" placeholder="e.g. 78.5" />
+            </div>
+          </div>
+
+          <div class="metrics-panel">
+            <p>BMI: <strong id="bmiValue">--</strong></p>
+            <p>Ideal weight range: <strong id="idealRange">--</strong></p>
+            <p id="targetPlan">Enter height and weight to see target weight gain/loss.</p>
+          </div>
+        </section>
+
+        <section class="card">
+          <label for="goalType">Goal Type</label>
+          <select id="goalType">
+            <option value="loss">Weight Loss</option>
+            <option value="gain">Weight Gain</option>
+          </select>
+
+          <div class="score-panel">
+            <p>Daily Success Score</p>
+            <h2 id="dailyScore">0%</h2>
+            <span id="dailyStatus" class="status needs">Needs Attention</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Today's Habits</h3>
+
+          <div class="tracker">
+            <div class="label-row">
+              <label for="water">Water (L)</label>
+              <span id="waterValue">0 / 5L</span>
+            </div>
+            <input id="water" type="range" min="0" max="5" step="0.25" value="0" />
+            <div class="progress"><span id="waterProgress"></span></div>
+          </div>
+
+          <div class="tracker">
+            <div class="label-row">
+              <label for="exercise">Exercise (min)</label>
+              <span id="exerciseValue">0 / 30 min</span>
+            </div>
+            <input id="exercise" type="range" min="0" max="90" step="5" value="0" />
+            <div class="progress"><span id="exerciseProgress"></span></div>
+          </div>
+
+          <div class="tracker">
+            <div class="label-row">
+              <label for="steps">Walking Steps</label>
+              <span id="stepsValue">0 / 10,000</span>
+            </div>
+            <input id="steps" type="range" min="0" max="15000" step="500" value="0" />
+            <div class="progress"><span id="stepsProgress"></span></div>
+          </div>
+
+          <div class="tracker">
+            <div class="label-row">
+              <label for="sleep">Sleep (hours)</label>
+              <span id="sleepValue">0 / 8 hr</span>
+            </div>
+            <input id="sleep" type="range" min="0" max="12" step="0.5" value="0" />
+            <div class="progress"><span id="sleepProgress"></span></div>
+          </div>
+
+          <div class="check-row">
+            <label for="shakeTaken">Herbalife Shake Taken</label>
+            <input id="shakeTaken" type="checkbox" />
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Coach Notes</h3>
+          <textarea id="notes" rows="4" placeholder="Energy level, cravings, workout notes, mood..."></textarea>
+        </section>
+
+        <section class="card action-row">
+          <button id="saveBtn">Save Today's Progress</button>
+          <small>Saved locally on this device.</small>
+        </section>
+      </section>
+
+      <section id="historyTab" class="tab-panel">
+        <section class="card">
+          <h3>Weekly Report (Last 7 Days)</h3>
+          <p id="weeklySummary">No entries yet.</p>
+        </section>
+        <section class="card">
+          <h3>Monthly Report (Last 30 Days)</h3>
+          <p id="monthlySummary">No entries yet.</p>
+        </section>
+        <section class="card">
+          <h3>History</h3>
+          <ul id="historyList" class="history-list">
+            <li>No saved check-ins yet.</li>
+          </ul>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
